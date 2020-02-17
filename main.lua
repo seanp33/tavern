@@ -9,16 +9,21 @@ local images = {}
 
 function love.load()
    walkingImg = love.graphics.newImage('img/walking.png')
+   walkingGrid = anim8.newGrid(32, 32, 128, 32, 0, 0, 0)
+   walkingAnim = anim8.newAnimation(walkingGrid('1-4', 1), 0.1)
+
    idleImg = love.graphics.newImage('img/idle.png')
+   idleGrid = anim8.newGrid(32, 32, 128, 32, 0, 0, 0)
+   idleAnim = anim8.newAnimation(idleGrid('1-4', 1), 0.1)
+   
    jumpImg = love.graphics.newImage('img/jump.png')
-   loopingGrid = anim8.newGrid(32, 32, 128, 32, 0, 0, 0)
-   loopingAnim = anim8.newAnimation(loopingGrid('1-4', 1), 0.1)
    jumpingGrid = anim8.newGrid(32, 32, 256, 32, 0, 0, 0)
    jumpingAnim = anim8.newAnimation(jumpingGrid('1-8', 1), 0.1)   
 end
 
 function love.update(dt)
-   loopingAnim:update(dt)
+   walkingAnim:update(dt)
+   idleAnim:update(dt)
    jumpingAnim:update(dt)
 end
 
@@ -27,12 +32,20 @@ function love.draw()
    green = 85/255
    blue = 97/255
    love.graphics.setBackgroundColor({red,green,blue})
-   loopingAnim:draw(walkingImg, 100, 100)
-   loopingAnim:draw(idleImg, 150, 100)
+   walkingAnim:draw(walkingImg, 100, 100)
+   idleAnim:draw(idleImg, 150, 100)
    jumpingAnim:draw(jumpImg, 200, 100)
    for k,v in pairs(images) do
       love.graphics.draw(v, util.center(v))
    end   
+end
+
+function love.keypressed(key)
+   if (key == 'a' or key == 'left') and not walkingAnim.flippedH then
+      walkingAnim:flipH()
+   elseif (key == 'd' or key == 'right') and walkingAnim.flippedH then
+         walkingAnim:flipH()
+   end
 end
 
 function love.filedropped(file)

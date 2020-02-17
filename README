@@ -1,1 +1,6 @@
 Following a love2d tutorial https://github.com/adnzzzzZ/blog/issues/15. This tutorial was mentioned on the official love website at https://love2d.org/wiki/Category:Tutorials
+
+## Resources
+
+- [anim8 - Animation](https://github.com/kikito/anim8/)
+- [tiny - Entity Component System](https://github.com/bakpakin/tiny-ecs)
