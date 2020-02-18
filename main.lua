@@ -8,6 +8,7 @@ local util = require 'util'
 local images = {}
 
 function love.load()
+   envImg = love.graphics.newImage('img/environment.png')
    walkingImg = love.graphics.newImage('img/walking.png')
    walkingGrid = anim8.newGrid(32, 32, 128, 32, 0, 0, 0)
    walkingAnim = anim8.newAnimation(walkingGrid('1-4', 1), 0.1)
@@ -28,13 +29,14 @@ function love.update(dt)
 end
 
 function love.draw()
-   red = 97/255
-   green = 85/255
-   blue = 97/255
+   red = 99/255
+   green = 155/255
+   blue = 255/255
    love.graphics.setBackgroundColor({red,green,blue})
-   walkingAnim:draw(walkingImg, 100, 100)
-   idleAnim:draw(idleImg, 150, 100)
-   jumpingAnim:draw(jumpImg, 200, 100)
+   love.graphics.draw(envImg, 110, 126)
+   walkingAnim:draw(walkingImg, 104, 100)
+   idleAnim:draw(idleImg, 161, 100)
+   jumpingAnim:draw(jumpImg, 192, 100)
    for k,v in pairs(images) do
       love.graphics.draw(v, util.center(v))
    end   
