@@ -15,6 +15,7 @@ function Player:init(config)
    self.isPlayer = true
    self.controllable = true
    self.pos = {x = config.x or 0, y = config.y or 0}
+   self.speed = config.speed or 75
    self.velocityX = 0
    self.direction = 'right'
 end
@@ -30,6 +31,7 @@ function Player:draw()
 end
 
 function Player:faceRight()
+   self.velocityX = self.speed
    if self.direction ~= 'right' then
       self.walkingAnim:flipH()
       self.jumpingAnim:flipH()
@@ -39,6 +41,7 @@ function Player:faceRight()
 end
 
 function Player:faceLeft()
+   self.velocityX = self.speed * -1
    if self.direction ~= 'left' then
       self.walkingAnim:flipH()
       self.jumpingAnim:flipH()

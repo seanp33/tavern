@@ -12,11 +12,9 @@ function PlayerSystem:process(e, dt)
    local jump = love.keyboard.isDown('space') or love.keyboard.isDown('up')
 
    if right and not jump then
-      e.velocityX = 50
       e:faceRight()
       e:walk()
    elseif left and not jump then
-      e.velocityX = -50
       e:faceLeft()
       e:walk()
    elseif jump then
