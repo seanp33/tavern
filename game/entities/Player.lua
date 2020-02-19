@@ -16,6 +16,7 @@ function Player:init(config)
    self.controllable = true
    self.pos = {x = config.x or 0, y = config.y or 0}
    self.velocityX = 0
+   self.direction = 'right'
 end
 
 function Player:update(dt)
@@ -26,6 +27,24 @@ end
 
 function Player:draw()
    self.animation:draw(self.sprite, self.pos.x, self.pos.y)   
+end
+
+function Player:faceRight()
+   if self.direction ~= 'right' then
+      self.walkingAnim:flipH()
+      self.jumpingAnim:flipH()
+      self.idleAnim:flipH()
+      self.direction = 'right'
+   end
+end
+
+function Player:faceLeft()
+   if self.direction ~= 'left' then
+      self.walkingAnim:flipH()
+      self.jumpingAnim:flipH()
+      self.idleAnim:flipH()
+      self.direction = 'left'
+   end
 end
 
 function Player:idle()

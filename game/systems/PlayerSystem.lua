@@ -10,13 +10,14 @@ function PlayerSystem:process(e, dt)
    local left = love.keyboard.isDown('a') or love.keyboard.isDown('left')
    local right = love.keyboard.isDown('d') or love.keyboard.isDown('right')
    local jump = love.keyboard.isDown('space') or love.keyboard.isDown('up')
+
    if right and not jump then
-      if e.flippedH then e.animation:flipH() end
       e.velocityX = 50
+      e:faceRight()
       e:walk()
    elseif left and not jump then
-      if not e.flippedH then e.animation:flipH() end
       e.velocityX = -50
+      e:faceLeft()
       e:walk()
    elseif jump then
       e:jump()
