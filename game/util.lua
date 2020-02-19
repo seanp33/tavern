@@ -1,4 +1,3 @@
-
 local module = {}
 
 -- creates a new Image for the given raw data
