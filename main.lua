@@ -11,7 +11,7 @@ beholder.observe("keypress", "escape", love.event.quit)
 -- TODO: impl game pausing and some kind of pauseCanvas(also used when resizing)
 beholder.observe("keypress", "p", function()
 	paused = not paused
-  print('Paused? ' .. tostring(paused))
+  print('DEBUG - Paused? ' .. tostring(paused))
   if paused then     
 		--love.graphics.setCanvas(pauseCanvas)
 		--world:update(0)
@@ -22,12 +22,13 @@ end)
 function love.load()
    love.mouse.setVisible(false)
    Demo():load() -- TODO: consider a "gamestate" module that loads States
-   print('system count: ' .. world:getSystemCount())
-   print('entity count: ' .. world:getEntityCount())
+   print('DEBUG - system count: ' .. world:getSystemCount())
+   print('DEBUG - entity count: ' .. world:getEntityCount())
 end
 
 function love.draw()   
    if world then      
+      -- NOTE: this world:update call has to happen within love.draw, because the ecs update cycle calls entity draw routines
       world:update(love.timer.getDelta())
    else
       print('No global world found. Unable to update')
