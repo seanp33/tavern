@@ -7,8 +7,7 @@ function Environment:init(config)
    self.isEnvironment = true
    self.pos = {x = config.x or 0, y = config.y or 0}
    self.bColor = config.bColor or {r=99/255, g=155/255, b=255/255}
-   self.animation = self.idleAnim
-   self.sprite = assets.envImg
+   self.sprite = assets.mapImg
 end
 
 function Environment:draw()
