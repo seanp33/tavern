@@ -5,6 +5,7 @@ class = require 'lib.30log' -- introduce global 'class' reference
 local Demo = require('game.states.Demo')
 
 local paused = false
+local physicsWorld = nil
 
 beholder.observe("keypress", "escape", love.event.quit)
 
@@ -21,6 +22,9 @@ end)
 
 function love.load()
    love.mouse.setVisible(false)
+   love.physics.setMeter(10)
+   physicsWorld = love.physics.newWorld(0, 9.81*64, true)
+
    Demo():load() -- TODO: consider a "gamestate" module that loads States
    print('DEBUG - system count: ' .. world:getSystemCount())
    print('DEBUG - entity count: ' .. world:getEntityCount())

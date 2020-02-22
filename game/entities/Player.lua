@@ -4,9 +4,9 @@ local Player = class("Player")
 
 function Player:init(config)   
    print('DEBUG - Player:init')
-   local walkingGrid = anim8.newGrid(32, 32, 128, 32, 0, 0, 0)
-   local idleGrid = anim8.newGrid(32, 32, 128, 32, 0, 0, 0)
-   local jumpingGrid = anim8.newGrid(32, 32, 256, 32, 0, 0, 0)
+   local walkingGrid = anim8.newGrid(64, 64, 256, 64, 0, 0, 0)
+   local idleGrid = anim8.newGrid(64, 64, 256, 64, 0, 0, 0)
+   local jumpingGrid = anim8.newGrid(64, 64, 512, 64, 0, 0, 0)
    self.walkingAnim = anim8.newAnimation(walkingGrid('1-4', 1), 0.1)   
    self.idleAnim = anim8.newAnimation(idleGrid('1-4', 1), 0.1)      
    self.jumpingAnim = anim8.newAnimation(jumpingGrid('1-8', 1), 0.1)
@@ -15,9 +15,19 @@ function Player:init(config)
    self.isPlayer = true
    self.controllable = true
    self.pos = {x = config.x or 0, y = config.y or 0}
-   self.speed = config.speed or 75
+   self.speed = config.speed or 150
+   self.fastSpeed = self.speed * 2
+   self.fast = false
    self.velocityX = 0
-   self.direction = 'right'
+   self.direction = 'right'  
+end
+
+function Player:currentSpeed()
+   if self.fast then
+      return self.fastSpeed
+   else
+      return self.speed
+   end
 end
 
 function Player:update(dt)
@@ -31,7 +41,7 @@ function Player:draw()
 end
 
 function Player:faceRight()
-   self.velocityX = self.speed
+   self.velocityX = self:currentSpeed()
    if self.direction ~= 'right' then
       self.walkingAnim:flipH()
       self.jumpingAnim:flipH()
@@ -41,7 +51,7 @@ function Player:faceRight()
 end
 
 function Player:faceLeft()
-   self.velocityX = self.speed * -1
+   self.velocityX = self:currentSpeed() * -1
    if self.direction ~= 'left' then
       self.walkingAnim:flipH()
       self.jumpingAnim:flipH()
@@ -51,6 +61,7 @@ function Player:faceLeft()
 end
 
 function Player:idle()
+   self.velocityX = 0
    if self.controllable then
       self.sprite = assets.idleImg
       self.animation = self.idleAnim
@@ -58,8 +69,9 @@ function Player:idle()
    end
 end
 
-function Player:walk()
+function Player:walk(fast)
    if self.controllable then
+      self.fast = fast
       self.sprite = assets.walkImg
       self.animation = self.walkingAnim
       self.jumpingAnim:gotoFrame(1)
