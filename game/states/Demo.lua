@@ -38,7 +38,7 @@ function Demo:load()
    local systemsWorld = tiny.world()
    systemsWorld:addSystem(PlayerSystem)
    systemsWorld:addSystem(EnvironmentSystem)
-   systemsWorld:addEntity(Player({x=playerSpawn.x, y=playerSpawn.y}))
+   systemsWorld:addEntity(Player({x=playerSpawn.x-5, y=playerSpawn.y}))
    systemsWorld:addEntity(Environment({bColor={r=99/255, g=155/255, b=255/255}, x=110, y=126}))
    systemsWorld:refresh()
   _G.systemsWorld = systemsWorld   
