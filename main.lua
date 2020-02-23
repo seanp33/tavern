@@ -1,11 +1,12 @@
+-- globals
 tiny = require 'lib.tiny'
+sti = require 'lib.sti'
 anim8 = require 'lib.anim8'
 beholder = require 'lib.beholder'
 class = require 'lib.30log' -- introduce global 'class' reference
-local Demo = require('game.states.Demo')
 
+local Demo = require('game.states.Demo')
 local paused = false
-local physicsWorld = nil
 
 beholder.observe("keypress", "escape", love.event.quit)
 
@@ -15,28 +16,50 @@ beholder.observe("keypress", "p", function()
   print('DEBUG - Paused? ' .. tostring(paused))
   if paused then     
 		--love.graphics.setCanvas(pauseCanvas)
-		--world:update(0)
+		--systemsWorld:update(0)
 		--love.graphics.setCanvas()
 	end
 end)
 
 function love.load()
-   love.mouse.setVisible(false)
-   love.physics.setMeter(10)
-   physicsWorld = love.physics.newWorld(0, 9.81*64, true)
+   love.mouse.setVisible(false)   
 
-   Demo():load() -- TODO: consider a "gamestate" module that loads States
-   print('DEBUG - system count: ' .. world:getSystemCount())
-   print('DEBUG - entity count: ' .. world:getEntityCount())
+   Demo():load()      
+   if systemsWorld and map then
+      love.physics.setMeter(64)
+      physicsWorld = love.physics.newWorld(0, 9.81*64, true)
+      map:box2d_init(physicsWorld)      
+--      collision = map:initWorldCollision(physicsWorld)      
+      print('DEBUG - system count: ' .. systemsWorld:getSystemCount())
+      print('DEBUG - entity count: ' .. systemsWorld:getEntityCount())
+   else
+      print('ERROR - systemsWorld or map undefined. Exiting')
+   end
 end
 
 function love.draw()   
-   if world then      
-      -- NOTE: this world:update call has to happen within love.draw, because the ecs update cycle calls entity draw routines
-      world:update(love.timer.getDelta())
-   else
-      print('No global world found. Unable to update')
-   end
+   -- NOTE: this world:update call has to happen within love.draw, because the ecs update cycle calls entity draw routines
+   systemsWorld:update(love.timer.getDelta())
+
+   -- Translation would normally be based on a player's x/y
+   local translateX = 0
+   local translateY = 0
+   
+   -- Draw Range culls unnecessary tiles
+   --map:setDrawRange(translateX, translateY, windowWidth, windowHeight)
+   
+   map:draw()
+      
+   -- Draw Collision Map (useful for debugging)
+   -- love.graphics.setColor(255, 0, 0, 255)
+   -- map:drawWorldCollision(collision)
+   
+   -- Reset color
+   love.graphics.setColor(255, 255, 255, 255)
+end
+
+function love.update(dt)
+   map:update(dt)
 end
 
 function love.keypressed(k)

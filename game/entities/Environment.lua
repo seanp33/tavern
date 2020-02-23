@@ -12,7 +12,7 @@ end
 
 function Environment:draw()
    love.graphics.setBackgroundColor({self.bColor.r, self.bColor.g, self.bColor.b})
-   love.graphics.draw(self.sprite, self.pos.x, self.pos.y)
+   --love.graphics.draw(self.sprite, self.pos.x, self.pos.y)
 end
 
 

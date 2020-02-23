@@ -1,8 +1,8 @@
 function love.conf(t)
-    t.identity = nil
+    t.identity = clockwise
     t.version = "11.2"
     t.console = false
-    t.window.title = "Tavern"
+    t.window.title = "Clockwise"
     t.window.icon = nil
     t.window.width = 900
     t.window.height = 600

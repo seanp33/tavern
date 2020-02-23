@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+ <tileset firstgid="1" source="environment_base.tsx"/>
+ <object name="coin" type="Loot" gid="60" width="32" height="32">
+  <properties>
+   <property name="hidden" type="bool" value="true"/>
+   <property name="value" type="int" value="1"/>
+  </properties>
+ </object>
+</template>
