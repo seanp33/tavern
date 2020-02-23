@@ -15,7 +15,7 @@ function Player:init(config)
    self.isPlayer = true
    self.controllable = true
    self.pos = {x = config.x or 0, y = config.y or 0}
-   self.speed = config.speed or 150
+   self.speed = config.speed or 100
    self.fastSpeed = self.speed * 1.5
    self.fast = false
    self.velocityX = 0
