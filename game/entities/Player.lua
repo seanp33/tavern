@@ -19,7 +19,11 @@ function Player:init(config)
    self.fastSpeed = self.speed * 1.5
    self.fast = false
    self.velocityX = 0
-   self.direction = 'right'  
+   self.direction = 'right'
+   -- physics play
+   self.body = love.physics.newBody(physicsWorld, self.pos.x, self.pos.y, "dynamic")
+   self.shape = love.physics.newRectangleShape(self.pos.x, self.pos.y, self.sprite:getWidth(), self.sprite:getHeight())
+   self.fixture = love.physics.newFixture(self.body, objects.ball.shape, 1)
 end
 
 function Player:currentSpeed()
