@@ -23,11 +23,10 @@ end)
 
 function love.load()
    love.mouse.setVisible(false)   
-
+   love.physics.setMeter(64)
+   physicsWorld = love.physics.newWorld(0, 9.81*64, true)
    Demo():load()      
-   if systemsWorld and map then
-      love.physics.setMeter(64)
-      physicsWorld = love.physics.newWorld(0, 9.81*64, true)
+   if systemsWorld and map then      
       map:box2d_init(physicsWorld)      
       print('DEBUG - system count: ' .. systemsWorld:getSystemCount())
       print('DEBUG - entity count: ' .. systemsWorld:getEntityCount())

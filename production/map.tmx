@@ -22,9 +22,6 @@
 </data>
  </layer>
  <layer id="2" name="env_accent" width="28" height="13">
-  <properties>
-   <property name="collidable" type="bool" value="false"/>
-  </properties>
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
