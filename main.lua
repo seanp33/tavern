@@ -58,6 +58,7 @@ end
 
 function love.update(dt)
    map:update(dt)
+   physicsWorld:update(dt)
 end
 
 function love.keypressed(k)

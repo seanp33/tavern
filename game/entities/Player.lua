@@ -16,10 +16,13 @@ function Player:init(config)
    self.controllable = true
    self.pos = {x = config.x or 0, y = config.y or 0}
    self.speed = config.speed or 100
+   self.force = config.force or 400
+   self.currentForce = 0
    self.fastSpeed = self.speed * 1.5
    self.fast = false
    self.velocityX = 0
    self.direction = 'right'
+
    -- physics play
    self.body = love.physics.newBody(physicsWorld, self.pos.x, self.pos.y, "dynamic")
    self.shape = love.physics.newRectangleShape(self.pos.x, self.pos.y, self.sprite:getWidth(), self.sprite:getHeight())
@@ -36,16 +39,19 @@ end
 
 function Player:update(dt)
    self.pos.x = self.pos.x + (self.velocityX * dt)
+   self.body:applyForce(self.currentForce, 0)
    self.animation:update(dt)
    self.animation:resume()
 end
 
 function Player:draw()
-   self.animation:draw(self.sprite, self.pos.x, self.pos.y)   
+   self.animation:draw(self.sprite, self.body:getX(), self.body:getY())   
+   --self.animation:draw(self.sprite, self.pos.x, self.pos.y)   
 end
 
 function Player:faceRight()
    self.velocityX = self:currentSpeed()
+   self.currentForce = self.force
    if self.direction ~= 'right' then
       self.walkingAnim:flipH()
       self.jumpingAnim:flipH()
@@ -56,6 +62,7 @@ end
 
 function Player:faceLeft()
    self.velocityX = self:currentSpeed() * -1
+   self.currentForce = self.force * -1
    if self.direction ~= 'left' then
       self.walkingAnim:flipH()
       self.jumpingAnim:flipH()
