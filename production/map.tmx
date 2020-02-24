@@ -22,6 +22,9 @@
 </data>
  </layer>
  <layer id="2" name="env_accent" width="28" height="13">
+  <properties>
+   <property name="collidable" type="bool" value="false"/>
+  </properties>
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -96,7 +99,7 @@
     <property name="show" value="coin1@pickups, coin2@pickups"/>
    </properties>
   </object>
-  <object id="3" name="player_finish" type="finish" x="608" y="192" width="32" height="32">
+  <object id="3" name="player_win" type="finish" x="608" y="192" width="32" height="32">
    <properties>
     <property name="show" value="flag1"/>
    </properties>

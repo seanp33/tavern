@@ -29,7 +29,6 @@ function love.load()
       love.physics.setMeter(64)
       physicsWorld = love.physics.newWorld(0, 9.81*64, true)
       map:box2d_init(physicsWorld)      
---      collision = map:initWorldCollision(physicsWorld)      
       print('DEBUG - system count: ' .. systemsWorld:getSystemCount())
       print('DEBUG - entity count: ' .. systemsWorld:getEntityCount())
    else
@@ -49,13 +48,13 @@ function love.draw()
    --map:setDrawRange(translateX, translateY, windowWidth, windowHeight)
    
    map:draw()
-      
+   
    -- Draw Collision Map (useful for debugging)
-   -- love.graphics.setColor(255, 0, 0, 255)
-   -- map:drawWorldCollision(collision)
+   love.graphics.setColor(1, 0, 0, 0.7)
+   map:box2d_draw()   
    
    -- Reset color
-   love.graphics.setColor(255, 255, 255, 255)
+   love.graphics.setColor(1,1,1,1)
 end
 
 function love.update(dt)

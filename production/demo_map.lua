@@ -61,7 +61,77 @@ return {
                 height = 14,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          }
+        },
+        {
+          id = 7,
+          objectGroup = {
+            type = "objectgroup",
+            id = 2,
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "collision",
+                type = "",
+                shape = "rectangle",
+                x = 0,
+                y = 0,
+                width = 10,
+                height = 12,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          }
+        },
+        {
+          id = 8,
+          objectGroup = {
+            type = "objectgroup",
+            id = 2,
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            draworder = "index",
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "collision",
+                type = "",
+                shape = "polygon",
+                x = 32,
+                y = 2,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = 0 },
+                  { x = -4, y = 0 },
+                  { x = -4, y = 12 },
+                  { x = 0, y = 12 }
+                },
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -90,7 +160,9 @@ return {
                 height = 16,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -119,7 +191,9 @@ return {
                 height = 11,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -148,7 +222,9 @@ return {
                 height = 12,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -177,7 +253,9 @@ return {
                 height = 12,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -206,7 +284,9 @@ return {
                 height = 16,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -235,7 +315,9 @@ return {
                 height = 12,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -264,7 +346,9 @@ return {
                 height = 12,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -299,16 +383,15 @@ return {
                   { x = -4, y = 16 },
                   { x = 0, y = 16 }
                 },
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
         },
         {
           id = 17,
-          properties = {
-            ["collidable"] = true
-          },
           objectGroup = {
             type = "objectgroup",
             id = 2,
@@ -331,7 +414,9 @@ return {
                 height = 32,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -360,7 +445,9 @@ return {
                 height = 32,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -389,7 +476,9 @@ return {
                 height = 32,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -418,7 +507,9 @@ return {
                 height = 32,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -447,7 +538,9 @@ return {
                 height = 32,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -476,7 +569,9 @@ return {
                 height = 32,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -505,7 +600,9 @@ return {
                 height = 32,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -534,7 +631,9 @@ return {
                 height = 22,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -563,7 +662,9 @@ return {
                 height = 32,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -592,7 +693,9 @@ return {
                 height = 32,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -621,7 +724,9 @@ return {
                 height = 32,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -650,7 +755,9 @@ return {
                 height = 32,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -679,7 +786,9 @@ return {
                 height = 32,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -708,7 +817,9 @@ return {
                 height = 32,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -737,7 +848,9 @@ return {
                 height = 27,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -766,7 +879,9 @@ return {
                 height = 13,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -802,7 +917,9 @@ return {
                   { x = 12, y = 32 },
                   { x = 0, y = 22 }
                 },
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -831,7 +948,9 @@ return {
                 height = 32,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -860,7 +979,9 @@ return {
                 height = 32,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -889,7 +1010,9 @@ return {
                 height = 32,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -918,7 +1041,9 @@ return {
                 height = 32,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = false
+                }
               }
             }
           }
@@ -947,7 +1072,9 @@ return {
                 height = 32,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
@@ -976,13 +1103,18 @@ return {
                 height = 11,
                 rotation = 0,
                 visible = true,
-                properties = {}
+                properties = {
+                  ["collidable"] = true
+                }
               }
             }
           }
         },
         {
           id = 41,
+          properties = {
+            ["collidable"] = true
+          },
           objectGroup = {
             type = "objectgroup",
             id = 2,
@@ -1172,7 +1304,9 @@ return {
       opacity = 1,
       offsetx = 0,
       offsety = 0,
-      properties = {},
+      properties = {
+        ["collidable"] = false
+      },
       encoding = "lua",
       data = {
         0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -1321,7 +1455,7 @@ return {
         },
         {
           id = 3,
-          name = "player_finish",
+          name = "player_win",
           type = "finish",
           shape = "rectangle",
           x = 608,
