@@ -21,11 +21,10 @@
  </tile>
  <tile id="8">
   <objectgroup draworder="index" id="2">
-   <object id="1" name="collision" x="32" y="2">
+   <object id="1" name="collision" x="28" y="2" width="4" height="12">
     <properties>
      <property name="collidable" type="bool" value="true"/>
     </properties>
-    <polygon points="0,0 -4,0 -4,12 0,12"/>
    </object>
   </objectgroup>
  </tile>
@@ -314,19 +313,6 @@
   <properties>
    <property name="collidable" type="bool" value="true"/>
   </properties>
-  <objectgroup draworder="index" id="2">
-   <object id="1" name="collision" x="0" y="0" width="32" height="32"/>
-  </objectgroup>
- </tile>
- <tile id="42">
-  <objectgroup draworder="index" id="2">
-   <object id="1" name="collision" x="0" y="0" width="32" height="32"/>
-  </objectgroup>
- </tile>
- <tile id="43">
-  <objectgroup draworder="index" id="2">
-   <object id="1" name="collision" x="0" y="0" width="32" height="32"/>
-  </objectgroup>
  </tile>
  <tile id="62">
   <objectgroup draworder="index" id="2">

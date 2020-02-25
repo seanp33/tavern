@@ -24,7 +24,7 @@ end)
 function love.load()
    love.mouse.setVisible(false)   
    love.physics.setMeter(64)
-   physicsWorld = love.physics.newWorld(0, 9.81*64, true)
+   physicsWorld = love.physics.newWorld(0, 9.81*64, false)
    Demo():load()      
    if systemsWorld and map then      
       map:box2d_init(physicsWorld)      
@@ -37,17 +37,9 @@ end
 
 function love.draw()   
    -- NOTE: this world:update call has to happen within love.draw, because the ecs update cycle calls entity draw routines
-   systemsWorld:update(love.timer.getDelta())
+   systemsWorld:update(love.timer.getDelta())   
+   map:draw()   
 
-   -- Translation would normally be based on a player's x/y
-   local translateX = 0
-   local translateY = 0
-   
-   -- Draw Range culls unnecessary tiles
-   --map:setDrawRange(translateX, translateY, windowWidth, windowHeight)
-   
-   map:draw()
-   
    -- Draw Collision Map (useful for debugging)
    love.graphics.setColor(1, 0, 0, 0.7)
    map:box2d_draw()   
