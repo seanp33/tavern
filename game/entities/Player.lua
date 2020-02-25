@@ -14,6 +14,7 @@ function Player:init(config)
    self.sprite = assets.idleImg
    self.isPlayer = true
    self.controllable = true
+   self.layer = config.layer
    self.pos = {x = config.x or 0, y = config.y or 0}
    self.speed = config.speed or 100
    self.force = config.force or 400

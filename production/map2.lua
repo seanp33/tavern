@@ -8,7 +8,7 @@ return {
   height = 13,
   tilewidth = 32,
   tileheight = 32,
-  nextlayerid = 3,
+  nextlayerid = 5,
   nextobjectid = 3,
   properties = {},
   tilesets = {
@@ -1175,7 +1175,7 @@ return {
     {
       type = "tilelayer",
       id = 1,
-      name = "border_layer",
+      name = "border",
       x = 0,
       y = 0,
       width = 28,
@@ -1203,6 +1203,18 @@ return {
         42, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 42,
         42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42, 42
       }
+    },
+    {
+      type = "objectgroup",
+      id = 4,
+      name = "player",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      draworder = "topdown",
+      properties = {},
+      objects = {}
     },
     {
       type = "objectgroup",

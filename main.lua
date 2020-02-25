@@ -42,7 +42,7 @@ function love.draw()
 
    -- Draw Collision Map (useful for debugging)
    love.graphics.setColor(1, 0, 0, 0.7)
-   map:box2d_draw()   
+   map:box2d_draw()
    
    -- Reset color
    love.graphics.setColor(1,1,1,1)
