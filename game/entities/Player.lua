@@ -86,8 +86,7 @@ end
 
 function Player:idle()
    self.velocityX = 0
-   self.currentForce = 0
-   --self.body:setLinearVelocity(0,0)
+   self.body:setLinearVelocity(0,0) --BUG: #playermovement | chaneg to slow/stop the player, but only when not jumping. When jumping, the player cannot go idle in the air
    if self.controllable then
       self.sprite = assets.idleImg
       self.animation = self.idleAnim
