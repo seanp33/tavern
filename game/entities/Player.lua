@@ -17,17 +17,26 @@ function Player:init(config)
    self.layer = config.layer
    self.pos = {x = config.x or 0, y = config.y or 0}
    self.speed = config.speed or 100
-   self.force = config.force or 400
+   self.force = config.force or 200
    self.currentForce = 0
    self.fastSpeed = self.speed * 1.5
    self.fast = false
    self.velocityX = 0
    self.direction = 'right'
-
+   
    -- physics play
    self.body = love.physics.newBody(physicsWorld, self.pos.x, self.pos.y, "dynamic")
    self.shape = love.physics.newRectangleShape(16, 16, self.sprite:getWidth(), self.sprite:getHeight())
-   self.fixture = love.physics.newFixture(self.body, self.shape, 1)
+   self.fixture = love.physics.newFixture(self.body, self.shape, .6)
+
+   self.layer.update = function(layer, dt)
+      self:update(dt)
+   end
+
+   self.layer.draw = function()
+      self:draw()
+   end
+   
 end
 
 function Player:currentSpeed()
@@ -45,12 +54,12 @@ function Player:update(dt)
    self.animation:resume()
 end
 
-function Player:draw()   
+function Player:draw()
+   --self.animation:draw(self.sprite, self.pos.x, self.pos.y)   
    self.animation:draw(self.sprite, self.body:getX(), self.body:getY())
    love.graphics.setColor(1, 0, 0, 0.4)
    love.graphics.rectangle( "fill", self.body:getX(), self.body:getY(), 32, 32)
-   love.graphics.setColor(1, 1, 1, 1)
-  -- self.animation:draw(self.sprite, self.pos.x, self.pos.y)   
+   love.graphics.setColor(1, 1, 1, 1)   
 end
 
 function Player:faceRight()
@@ -77,8 +86,8 @@ end
 
 function Player:idle()
    self.velocityX = 0
-   self.currentForce = 0   
-   --self.body:setLinearVelocity(0, 0)
+   self.currentForce = 0
+   --self.body:setLinearVelocity(0,0)
    if self.controllable then
       self.sprite = assets.idleImg
       self.animation = self.idleAnim

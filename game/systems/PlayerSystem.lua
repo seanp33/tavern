@@ -23,8 +23,8 @@ function PlayerSystem:process(e, dt)
    elseif not right and not left and not jump then
       e:idle()
    end
-   e:update(dt)
-   e:draw()
+   --e:update(dt)
+   --e:draw()
 end
 
 return tiny.processingSystem(PlayerSystem)

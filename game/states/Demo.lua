@@ -8,7 +8,7 @@ local Demo = class("Demo")
 
 function Demo:load()
    print('DEBUG - Demo: loading map')
-   map = sti('production/map2.lua', {'box2d'})
+   map = sti('production/map.lua', {'box2d'})
    _G.map = map
 
    local mapObjects = {}
@@ -38,7 +38,7 @@ function Demo:load()
    local systemsWorld = tiny.world()
    systemsWorld:addSystem(PlayerSystem)
    systemsWorld:addSystem(EnvironmentSystem)
-   systemsWorld:addEntity(Player({layer=map:getLayer['player'], x=playerSpawn.x, y=playerSpawn.y}))
+   systemsWorld:addEntity(Player({layer=map.layers['player'], x=playerSpawn.x, y=playerSpawn.y}))
    systemsWorld:addEntity(Environment({bColor={r=99/255, g=155/255, b=255/255}, x=110, y=126}))
    systemsWorld:refresh()
   _G.systemsWorld = systemsWorld   

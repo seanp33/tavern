@@ -311,7 +311,7 @@
  </tile>
  <tile id="41">
   <properties>
-   <property name="collidable" type="bool" value="true"/>
+   <property name="collidable" type="bool" value="false"/>
   </properties>
  </tile>
  <tile id="62">

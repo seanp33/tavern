@@ -5,7 +5,7 @@ anim8 = require 'lib.anim8'
 beholder = require 'lib.beholder'
 class = require 'lib.30log' -- introduce global 'class' reference
 
-local Demo = require('game.states.Demo')
+local Demo = require 'game.states.Demo'
 local paused = false
 
 beholder.observe("keypress", "escape", love.event.quit)
@@ -24,10 +24,10 @@ end)
 function love.load()
    love.mouse.setVisible(false)   
    love.physics.setMeter(64)
-   physicsWorld = love.physics.newWorld(0, 9.81*64, false)
+   physicsWorld = love.physics.newWorld(0, 9.81*64, true)
    Demo():load()      
    if systemsWorld and map then      
-      map:box2d_init(physicsWorld)      
+      map:box2d_init(physicsWorld)
       print('DEBUG - system count: ' .. systemsWorld:getSystemCount())
       print('DEBUG - entity count: ' .. systemsWorld:getEntityCount())
    else
