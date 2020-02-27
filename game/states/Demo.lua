@@ -8,7 +8,7 @@ local Demo = class("Demo")
 
 function Demo:load()
    print('DEBUG - Demo: loading map')
-   map = sti('production/map3.lua', {'box2d'})
+   map = sti('production/map.lua', {'box2d'})
    _G.map = map
 
    local mapObjects = {}

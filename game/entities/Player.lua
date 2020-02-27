@@ -26,6 +26,7 @@ function Player:init(config)
    
    -- physics play
    self.body = love.physics.newBody(physicsWorld, self.pos.x, self.pos.y, "dynamic")
+   self.body:setMass(77)
    self.shape = love.physics.newRectangleShape(16, 16, self.sprite:getWidth(), self.sprite:getHeight())
    self.fixture = love.physics.newFixture(self.body, self.shape, .6)
 
@@ -86,7 +87,7 @@ end
 
 function Player:idle()
    self.velocityX = 0
-   self.body:setLinearVelocity(0,0) --BUG: #playermovement | chaneg to slow/stop the player, but only when not jumping. When jumping, the player cannot go idle in the air
+   --self.body:setLinearVelocity(0,0) --BUG: #playermovement | chaneg to slow/stop the player, but only when not jumping. When jumping, the player cannot go idle in the air
    if self.controllable then
       self.sprite = assets.idleImg
       self.animation = self.idleAnim
